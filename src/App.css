@@ -2,6 +2,9 @@ html {
   box-sizing: border-box;
   font-family: 'Fuzzy Bubbles',
     cursive;
+  background-image: url("images/background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 *,
@@ -10,13 +13,4 @@ html {
   box-sizing: inherit;
 }
 
-.body {
-  background-image: url("images/background.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.converter {
-  max-width: 550px;
-  margin: 30px auto;
-}
+/* .main {} */

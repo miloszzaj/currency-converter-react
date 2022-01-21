@@ -2,10 +2,11 @@ import "./style.css";
 import FormParagraph from "../FormParagraph";
 import Select from "../Select";
 import Input from "../Input/input";
+import FormContainer from "../FormContainer";
 
 const Form = () => {
   return (
-    <form className="form">
+    <FormContainer className="form">
       <fieldset className="form__fieldset">
         <legend className="form__legend">Currency Converter</legend>
         <FormParagraph title="Waluta:" select={<Select />} />
@@ -64,7 +65,7 @@ const Form = () => {
           <p className="addition__paragraph"></p>
         </section>
       </fieldset>
-    </form>
+    </FormContainer>
   );
 };
 

@@ -1,3 +1,5 @@
+import "./style.css";
+
 const Select = () => {
   return (
     <select className="form__select">

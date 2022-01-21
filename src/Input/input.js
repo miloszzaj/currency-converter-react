@@ -1,3 +1,4 @@
+import "./style.css";
 const Input = ({ className, type, name, step, min, placeholder, required }) => {
   return (
     <input
