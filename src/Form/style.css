@@ -20,20 +20,6 @@
     margin: 0 auto;
 }
 
-.form__paragraph {
-    margin: 20px auto;
-    line-height: 1.5;
-}
-
-.form__labelText {
-    width: 150px;
-    display: inline-block;
-    font-weight: 600;
-
-}
-
-
-
 .form__requiredText {
     font-size: 12px;
     margin-left: 28px;

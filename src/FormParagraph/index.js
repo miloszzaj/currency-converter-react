@@ -1,3 +1,5 @@
+import "./style.css";
+
 const FormParagraph = ({ title, select, input }) => {
   return (
     <p className="form__paragraph">
