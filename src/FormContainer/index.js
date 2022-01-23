@@ -1,7 +1,8 @@
-import "./style.css";
+import './style.css';
 
 const FormContainer = ({ children }) => {
-  return <form className="form">{children}</form>;
+	console.log('childreen', children);
+	return <form className='form'>{children}</form>;
 };
 
 export default FormContainer;
