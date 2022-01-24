@@ -1,0 +1,12 @@
+.form__scoreText {
+  font-size: 25px;
+}
+
+.form__score {
+  color: rgb(158, 158, 158);
+}
+
+.form__score--color {
+  color: rgb(43, 144, 103);
+  font-weight: 700;
+}

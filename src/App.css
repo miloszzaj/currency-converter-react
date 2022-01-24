@@ -1,10 +1,11 @@
 html {
   box-sizing: border-box;
-  font-family: 'Fuzzy Bubbles',
-    cursive;
   background-image: url("images/background.jpg");
   background-size: cover;
   background-attachment: fixed;
+  font-family: 'Fuzzy Bubbles',
+  cursive
+  
 }
 
 *,
@@ -13,4 +14,4 @@ html {
   box-sizing: inherit;
 }
 
-/* .main {} */
+/* .main { }  */
