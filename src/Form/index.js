@@ -5,7 +5,10 @@ import InputComponent from '../InputComponent';
 import FormContainer from '../FormContainer';
 import FormButton from '../FormButton';
 import FormScore from '../FormScore';
+import FormRequiredText from '../FormRequiredText';
 import AdditionComponent from '../AdditionComponent';
+import AdditionalHeader from '../AdditionalHeader';
+import AdditionalParagraph from '../AdditionalParagraph';
 
 const Form = () => {
 	return (
@@ -40,8 +43,7 @@ const Form = () => {
 						required={true}
 					/>
 				</FormParagraph>
-
-				<p className='form__requiredText'>* - pola obowiązkowe</p>
+				<FormRequiredText text='* - pola obowiązkowe' />
 				<FormParagraph>
 					<FormButton buttonBody='Przelicz' type='submit' />
 				</FormParagraph>
@@ -54,11 +56,15 @@ const Form = () => {
 				</FormParagraph>
 
 				<AdditionComponent>
-					<h2 className='addition__header'>Możesz sprawdzić aktualy kurs Dolara:</h2>
-					<p className='center'>
+					<AdditionalHeader title='Możesz sprawdzić aktualy kurs Dolara:' />
+					<FormParagraph>
+						<FormButton buttonBody='Sprawdz kurs USD' />
+					</FormParagraph>
+
+					{/* <p className='center'>
 						<button className='addition__button'>Sprawdz kurs USD</button>
-					</p>
-					<p className='addition__paragraph'></p>
+					</p> */}
+					<AdditionalParagraph />
 				</AdditionComponent>
 			</fieldset>
 		</FormContainer>

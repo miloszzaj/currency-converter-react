@@ -20,12 +20,6 @@
     margin: 0 auto;
 }
 
-
-.form__requiredText {
-    font-size: 12px;
-    margin-left: 28px;
-}
-
 .form__button,
 .addition__button {
     margin: 0 auto;
@@ -46,26 +40,11 @@
 
 
 
-.addition {
-    margin: 0 auto;
-    width: 100%;
-    border-top: 1px dotted rgb(43, 144, 103);
-    padding-top: 20px;
-}
+
 
 .center {
     margin: auto;
     max-width: 200px;
 }
 
-.addition__header {
-    text-align: center;
-    font-size: 22px;
-    color: rgb(43, 144, 103, 0.5);
-}
 
-.addition__paragraph {
-    height: 30px;
-    text-align: center;
-
-}
