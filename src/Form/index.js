@@ -1,7 +1,7 @@
 import './style.css';
 import FormParagraph from '../FormParagraph';
-import Select from '../Select';
-import Input from '../Input/input';
+import SelectComponent from '../SelectComponent';
+import InputComponent from '../InputComponent';
 import FormContainer from '../FormContainer';
 
 const Form = () => {
@@ -9,12 +9,16 @@ const Form = () => {
 		<FormContainer className='form'>
 			<fieldset className='form__fieldset'>
 				<legend className='form__legend'>Currency Converter</legend>
-				<FormParagraph title='Waluta:'>
-					<Select />
+				<FormParagraph>
+					<label>
+						<span class='form__labelText'>Waluta:</span>
+						<SelectComponent />
+					</label>
 				</FormParagraph>
-				<FormParagraph title='Ilość*:'>
-					<Input
-						className='form__amount'
+				<FormParagraph>
+					<InputComponent
+						title='Ilośc*:'
+						// className='form__input'
 						type='number'
 						name='amount'
 						step='0.01'
@@ -22,12 +26,12 @@ const Form = () => {
 						placeholder='0.00'
 						required={true}
 					/>
-					'to sa chilfdreny '
 				</FormParagraph>
 
-				<FormParagraph title='Aktualny kurs*:'>
-					<Input
-						className='form__course'
+				<FormParagraph>
+					<InputComponent
+						title='Aktualny kurs*:'
+						// className='form__input'
 						type='number'
 						name='course'
 						step='0.001'
