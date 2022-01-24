@@ -4,3 +4,10 @@
     width: 300px;
     padding: 10px;
 }
+
+.form__labelText {
+    width: 150px;
+    display: inline-block;
+    font-weight: 600;
+
+}
