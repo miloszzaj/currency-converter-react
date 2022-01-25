@@ -9,19 +9,19 @@ import FormRequiredText from '../FormRequiredText';
 import AdditionComponent from '../AdditionComponent';
 import AdditionalHeader from '../AdditionalHeader';
 import AdditionalParagraph from '../AdditionalParagraph';
+import FormLegend from '../FormLegend';
 
 const Form = () => {
 	return (
-		<FormContainer className='form'>
+		<FormContainer>
 			<fieldset className='form__fieldset'>
-				<legend className='form__legend'>Currency Converter</legend>
+				<FormLegend title='Currency Converter' />
 				<FormParagraph>
 					<SelectComponent title='Waluta:' />
 				</FormParagraph>
 				<FormParagraph>
 					<InputComponent
 						title='Ilość*:'
-						// className='form__input'
 						type='number'
 						name='amount'
 						step='0.01'
@@ -30,11 +30,9 @@ const Form = () => {
 						required={true}
 					/>
 				</FormParagraph>
-
 				<FormParagraph>
 					<InputComponent
 						title='Aktualny kurs*:'
-						// className='form__input'
 						type='number'
 						name='course'
 						step='0.001'
@@ -47,7 +45,6 @@ const Form = () => {
 				<FormParagraph>
 					<FormButton buttonBody='Przelicz' type='submit' />
 				</FormParagraph>
-
 				<FormParagraph>
 					<FormScore />
 				</FormParagraph>
@@ -60,10 +57,6 @@ const Form = () => {
 					<FormParagraph>
 						<FormButton buttonBody='Sprawdz kurs USD' />
 					</FormParagraph>
-
-					{/* <p className='center'>
-						<button className='addition__button'>Sprawdz kurs USD</button>
-					</p> */}
 					<AdditionalParagraph />
 				</AdditionComponent>
 			</fieldset>
