@@ -1,11 +1,5 @@
 html {
   box-sizing: border-box;
-  background-image: url("images/background.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  font-family: 'Fuzzy Bubbles',
-  cursive
-  
 }
 
 *,
