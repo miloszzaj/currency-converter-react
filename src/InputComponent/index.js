@@ -1,5 +1,6 @@
 import './style.css';
-const InputComponent = ({ title, className, type, name, step, min, placeholder, required }) => {
+// import { useState } from 'react';
+const InputComponent = ({ title, type, name, step, min, placeholder, required }) => {
 	return (
 		<label>
 			<span className='form__labelText'>{title}</span>

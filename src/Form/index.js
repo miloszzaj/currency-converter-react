@@ -11,9 +11,23 @@ import AdditionalHeader from '../AdditionalHeader';
 import AdditionalParagraph from '../AdditionalParagraph';
 import FormLegend from '../FormLegend';
 
+import { useState } from 'react';
+
 const Form = () => {
+	const [amount, setAmount] = useState(0);
+	const [course, setCourse] = useState(0);
+	const [result, setResult] = useState();
+	const calculate = () => {
+		setResult(amount * course);
+	};
+
+	const onFormSubmit = e => {
+		e.preventDefault();
+		calculate(amount, course);
+	};
+
 	return (
-		<FormContainer>
+		<FormContainer onSubmit={onFormSubmit}>
 			<fieldset className='form__fieldset'>
 				<FormLegend title='Currency Converter' />
 				<FormParagraph>
@@ -28,6 +42,7 @@ const Form = () => {
 						min='0.1'
 						placeholder='0.00'
 						required={true}
+						onChange={e => setAmount(e.target.value)}
 					/>
 				</FormParagraph>
 				<FormParagraph>
@@ -39,6 +54,7 @@ const Form = () => {
 						min='0.1'
 						placeholder='0.000'
 						required={true}
+						onChange={e => setCourse(e.target.value)}
 					/>
 				</FormParagraph>
 				<FormRequiredText text='* - pola obowiązkowe' />
@@ -46,7 +62,7 @@ const Form = () => {
 					<FormButton buttonBody='Przelicz' type='submit' />
 				</FormParagraph>
 				<FormParagraph>
-					<FormScore />
+					<FormScore result={result} />
 				</FormParagraph>
 				<FormParagraph>
 					<FormButton buttonBody='Wyczyść kalkulator' type='reset' />

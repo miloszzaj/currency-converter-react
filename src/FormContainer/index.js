@@ -1,7 +1,11 @@
 import './style.css';
 
-const FormContainer = ({ children }) => {
-	return <form className='form'>{children}</form>;
+const FormContainer = ({ children, onSubmit }) => {
+	return (
+		<form className='form' onSubmit={onSubmit}>
+			{children}
+		</form>
+	);
 };
 
 export default FormContainer;

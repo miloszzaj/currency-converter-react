@@ -1,8 +1,8 @@
 import './style.css';
-const FormScore = () => {
+const FormScore = ({ result }) => {
 	return (
 		<label className='form__scoreText'>
-			Ilość PLN: <strong className='form__score'>0.000</strong>
+			Ilość PLN: <strong className='form__score'>{result ? result : '0.000'}</strong>
 		</label>
 	);
 };
