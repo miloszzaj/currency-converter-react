@@ -1,6 +1,6 @@
 import './style.css';
 // import { useState } from 'react';
-const InputComponent = ({ title, type, name, step, min, placeholder, required }) => {
+const InputComponent = ({ title, type, name, step, min, placeholder, required, value, onChange }) => {
 	return (
 		<label>
 			<span className='form__labelText'>{title}</span>
@@ -12,6 +12,8 @@ const InputComponent = ({ title, type, name, step, min, placeholder, required })
 				min={min}
 				placeholder={placeholder}
 				required={required}
+				value={value}
+				onChange={onChange}
 			/>
 		</label>
 	);

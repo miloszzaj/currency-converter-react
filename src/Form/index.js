@@ -10,23 +10,28 @@ import FormLegend from '../FormLegend';
 import { useState } from 'react';
 
 const Form = () => {
-	const [amount, setAmount] = useState(0);
-	const [course, setCourse] = useState(0);
+	const [amount, setAmount] = useState('');
+	const [course, setCourse] = useState('');
 	const [result, setResult] = useState();
 	const calculate = () => {
-		setResult(amount * course);
+		const res = amount * course;
+		setResult(res.toFixed(3));
 	};
-	console.log(result);
 
 	const onFormSubmit = e => {
-		console.log(e);
 		e.preventDefault();
 		calculate(amount, course);
 		console.log(result);
 	};
 
+	const onReset = e => {
+		setAmount('');
+		setCourse('');
+		setResult();
+	};
+
 	return (
-		<form className='form' onSubmit={onFormSubmit} result={result}>
+		<form className='form' onSubmit={onFormSubmit} onReset={onReset}>
 			<fieldset className='form__fieldset'>
 				<FormLegend title='Currency Converter' />
 				<FormParagraph>
