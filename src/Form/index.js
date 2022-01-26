@@ -5,9 +5,6 @@ import InputComponent from '../InputComponent';
 import FormButton from '../FormButton';
 import FormScore from '../FormScore';
 import FormRequiredText from '../FormRequiredText';
-import AdditionComponent from '../AdditionComponent';
-import AdditionalHeader from '../AdditionalHeader';
-import AdditionalParagraph from '../AdditionalParagraph';
 import FormLegend from '../FormLegend';
 
 import { useState } from 'react';
@@ -71,14 +68,6 @@ const Form = () => {
 				<FormParagraph>
 					<FormButton buttonBody='Wyczyść kalkulator' type='reset' />
 				</FormParagraph>
-
-				<AdditionComponent>
-					<AdditionalHeader title='Możesz sprawdzić aktualy kurs Dolara:' />
-					<FormParagraph>
-						<FormButton buttonBody='Sprawdz kurs USD' />
-					</FormParagraph>
-					<AdditionalParagraph />
-				</AdditionComponent>
 			</fieldset>
 		</form>
 	);
