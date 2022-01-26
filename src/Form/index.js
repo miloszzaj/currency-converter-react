@@ -21,7 +21,6 @@ const Form = () => {
 	const onFormSubmit = e => {
 		e.preventDefault();
 		calculate(amount, course);
-		console.log(result);
 	};
 
 	const onReset = e => {
