@@ -19,6 +19,7 @@ Please, enter a value of one currency and course of this currency to be converte
 - Babel
 
 ## Preview
+![preview](https://github.com/miloszzaj/currency-converter-react/blob/master/demo.gif)
 
 
 ## Available Scripts
