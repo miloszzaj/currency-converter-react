@@ -2,7 +2,6 @@ import './style.css';
 import FormParagraph from '../FormParagraph';
 import SelectComponent from '../SelectComponent';
 import InputComponent from '../InputComponent';
-import FormContainer from '../FormContainer';
 import FormButton from '../FormButton';
 import FormScore from '../FormScore';
 import FormRequiredText from '../FormRequiredText';
@@ -20,14 +19,17 @@ const Form = () => {
 	const calculate = () => {
 		setResult(amount * course);
 	};
+	console.log(result);
 
 	const onFormSubmit = e => {
+		console.log(e);
 		e.preventDefault();
 		calculate(amount, course);
+		console.log(result);
 	};
 
 	return (
-		<FormContainer onSubmit={onFormSubmit}>
+		<form className='form' onSubmit={onFormSubmit} result={result}>
 			<fieldset className='form__fieldset'>
 				<FormLegend title='Currency Converter' />
 				<FormParagraph>
@@ -42,6 +44,7 @@ const Form = () => {
 						min='0.1'
 						placeholder='0.00'
 						required={true}
+						value={amount}
 						onChange={e => setAmount(e.target.value)}
 					/>
 				</FormParagraph>
@@ -54,6 +57,7 @@ const Form = () => {
 						min='0.1'
 						placeholder='0.000'
 						required={true}
+						value={course}
 						onChange={e => setCourse(e.target.value)}
 					/>
 				</FormParagraph>
@@ -76,7 +80,7 @@ const Form = () => {
 					<AdditionalParagraph />
 				</AdditionComponent>
 			</fieldset>
-		</FormContainer>
+		</form>
 	);
 };
 

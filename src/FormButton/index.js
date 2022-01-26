@@ -1,7 +1,7 @@
 import './style.css';
-const FormButton = ({ buttonBody, type }) => {
+const FormButton = ({ buttonBody, type, onClick }) => {
 	return (
-		<button className='form__button' type={type}>
+		<button className='form__button' type={type} onClick={onClick}>
 			{buttonBody}
 		</button>
 	);
