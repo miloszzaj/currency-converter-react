@@ -6,6 +6,7 @@ import FormButton from '../FormButton';
 import FormScore from '../FormScore';
 import FormRequiredText from '../FormRequiredText';
 import FormLegend from '../FormLegend';
+import FormData from '../FormData';
 
 import { useState } from 'react';
 
@@ -33,6 +34,9 @@ const Form = () => {
 		<form className='form' onSubmit={onFormSubmit} onReset={onReset}>
 			<fieldset className='form__fieldset'>
 				<FormLegend title='Currency Converter' />
+				<FormParagraph>
+					<FormData />
+				</FormParagraph>
 				<FormParagraph>
 					<SelectComponent title='Waluta:' />
 				</FormParagraph>
