@@ -1,12 +1,12 @@
 import './style.css';
-import FormParagraph from '../FormParagraph';
-import SelectComponent from '../SelectComponent';
-import InputComponent from '../InputComponent';
+import Select from '../Select';
+import Input from '../Input';
 import FormButton from '../FormButton';
 import FormScore from '../FormScore';
 import FormRequiredText from '../FormRequiredText';
 import FormLegend from '../FormLegend';
 import FormData from '../FormData';
+import { currencies } from '../currencies';
 
 import { useState } from 'react';
 
@@ -17,6 +17,10 @@ const Form = () => {
 	const calculate = () => {
 		const res = amount * course;
 		setResult(res.toFixed(3));
+	};
+
+	const currencyCourse = () => {
+		console.log(currencies.map(option => option.course));
 	};
 
 	const onFormSubmit = e => {
@@ -34,14 +38,14 @@ const Form = () => {
 		<form className='form' onSubmit={onFormSubmit} onReset={onReset}>
 			<fieldset className='form__fieldset'>
 				<FormLegend title='Currency Converter' />
-				<FormParagraph>
+				<div className='form__paragraph'>
 					<FormData />
-				</FormParagraph>
-				<FormParagraph>
-					<SelectComponent title='Waluta:' />
-				</FormParagraph>
-				<FormParagraph>
-					<InputComponent
+				</div>
+				<div className='form__paragraph'>
+					<Select title='Waluta:' />
+				</div>
+				<div className='form__paragraph'>
+					<Input
 						title='Ilość*:'
 						type='number'
 						name='amount'
@@ -52,9 +56,9 @@ const Form = () => {
 						value={amount}
 						onChange={e => setAmount(e.target.value)}
 					/>
-				</FormParagraph>
-				<FormParagraph>
-					<InputComponent
+				</div>
+				<div className='form__paragraph'>
+					<Input
 						title='Aktualny kurs*:'
 						type='number'
 						name='course'
@@ -65,17 +69,18 @@ const Form = () => {
 						value={course}
 						onChange={e => setCourse(e.target.value)}
 					/>
-				</FormParagraph>
+				</div>
 				<FormRequiredText text='* - pola obowiązkowe' />
-				<FormParagraph>
+				<div className='form__paragraph'>
+					<button onClick={currencyCourse}>kliknij</button>
 					<FormButton buttonBody='Przelicz' type='submit' />
-				</FormParagraph>
-				<FormParagraph>
+				</div>
+				<div className='form__paragraph'>
 					<FormScore result={result} />
-				</FormParagraph>
-				<FormParagraph>
+				</div>
+				<div className='form__paragraph'>
 					<FormButton buttonBody='Wyczyść kalkulator' type='reset' />
-				</FormParagraph>
+				</div>
 			</fieldset>
 		</form>
 	);
