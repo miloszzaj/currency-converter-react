@@ -1,6 +1,6 @@
 import './style.css';
 // import { useState } from 'react';
-const InputComponent = ({ title, type, name, step, min, placeholder, required, value, onChange }) => {
+const Input = ({ title, type, name, step, min, placeholder, required, value, onChange }) => {
 	return (
 		<label>
 			<span className='form__labelText'>{title}</span>
@@ -19,4 +19,4 @@ const InputComponent = ({ title, type, name, step, min, placeholder, required, v
 	);
 };
 
-export default InputComponent;
+export default Input;

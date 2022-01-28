@@ -1,7 +1,7 @@
 import './style.css';
 import { options } from './options';
 
-const SelectComponent = ({ title }) => {
+const Select = ({ title }) => {
 	return (
 		<label>
 			<span className='form__labelText'>{title}</span>
@@ -14,4 +14,4 @@ const SelectComponent = ({ title }) => {
 	);
 };
 
-export default SelectComponent;
+export default Select;
