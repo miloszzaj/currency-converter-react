@@ -1,3 +1,4 @@
+import './style.css';
 import { useState } from 'react';
 
 const FormData = () => {
@@ -6,7 +7,7 @@ const FormData = () => {
 	setInterval(() => setDate(new Date()), 500);
 
 	return (
-		<div>
+		<div className='form__data'>
 			Dzisiaj jest {date.toLocaleDateString('pl', { weekend: 'long', day: 'numeric', month: 'long', year: 'numeric' })},
 			{date.toLocaleTimeString()}
 		</div>

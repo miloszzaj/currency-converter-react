@@ -27,7 +27,7 @@ const Form = () => {
 		calculate(amount, actualCourse);
 	};
 
-	const onReset = e => {
+	const onReset = () => {
 		setAmount('');
 		setActualCourse('4.5697');
 		setResult();
@@ -37,7 +37,7 @@ const Form = () => {
 		<form className='form' onSubmit={onFormSubmit} onReset={onReset}>
 			<fieldset className='form__fieldset'>
 				<FormLegend title='Currency Converter' />
-				<div className='form__paragraph'>
+				<div className='form__paragraph right'>
 					<FormData />
 				</div>
 				<div className='form__paragraph'>
