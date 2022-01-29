@@ -6,31 +6,30 @@ import FormScore from '../FormScore';
 import FormRequiredText from '../FormRequiredText';
 import FormLegend from '../FormLegend';
 import FormData from '../FormData';
-import { currencies } from '../currencies';
 
 import { useState } from 'react';
 
 const Form = () => {
 	const [amount, setAmount] = useState('');
-	const [course, setCourse] = useState('');
 	const [result, setResult] = useState();
-	const calculate = () => {
-		const res = amount * course;
-		setResult(res.toFixed(3));
-	};
+	const [actualCourse, setActualCourse] = useState('4.5697');
 
-	const currencyCourse = () => {
-		console.log(currencies.map(option => option.course));
+	const selectedCourseDisplay = e => {
+		setActualCourse(e.target.value);
+	};
+	const calculate = () => {
+		const res = amount * actualCourse;
+		setResult(res.toFixed(3));
 	};
 
 	const onFormSubmit = e => {
 		e.preventDefault();
-		calculate(amount, course);
+		calculate(amount, actualCourse);
 	};
 
 	const onReset = e => {
 		setAmount('');
-		setCourse('');
+		setActualCourse('4.5697');
 		setResult();
 	};
 
@@ -42,7 +41,10 @@ const Form = () => {
 					<FormData />
 				</div>
 				<div className='form__paragraph'>
-					<Select title='Waluta:' />
+					<Select title='Waluta:' onChange={selectedCourseDisplay} />
+				</div>
+				<div className='form__paragraph'>
+					<Input title='Aktualny kurs*:' type='number' name='actualCourse' required={true} value={actualCourse} />
 				</div>
 				<div className='form__paragraph'>
 					<Input
@@ -57,22 +59,8 @@ const Form = () => {
 						onChange={e => setAmount(e.target.value)}
 					/>
 				</div>
-				<div className='form__paragraph'>
-					<Input
-						title='Aktualny kurs*:'
-						type='number'
-						name='course'
-						step='0.001'
-						min='0.1'
-						placeholder='0.000'
-						required={true}
-						value={course}
-						onChange={e => setCourse(e.target.value)}
-					/>
-				</div>
 				<FormRequiredText text='* - pola obowiązkowe' />
 				<div className='form__paragraph'>
-					<button onClick={currencyCourse}>kliknij</button>
 					<FormButton buttonBody='Przelicz' type='submit' />
 				</div>
 				<div className='form__paragraph'>
