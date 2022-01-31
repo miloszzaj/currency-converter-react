@@ -44,7 +44,7 @@ const Form = () => {
 					<Select title='Waluta:' onChange={selectedCourseDisplay} />
 				</div>
 				<div className='form__paragraph'>
-					<Input title='Aktualny kurs*:' type='number' name='actualCourse' required={true} value={actualCourse} />
+					<Input title='Aktualny kurs*:' type='number' name='actualCourse' required={true} readOnly value={actualCourse} />
 				</div>
 				<div className='form__paragraph'>
 					<Input
