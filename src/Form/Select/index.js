@@ -1,5 +1,5 @@
 import './style.css';
-import { currencies } from '../currencies';
+import { currencies } from '../../currencies';
 import React from 'react';
 
 const Select = ({ title, onChange }) => {

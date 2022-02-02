@@ -1,5 +1,5 @@
 import './style.css';
-import { useCurrentDate } from '../useCurrentDate';
+import { useCurrentDate } from '../../useCurrentDate';
 
 const FormData = () => {
 	const date = useCurrentDate();
