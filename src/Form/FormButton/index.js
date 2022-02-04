@@ -1,10 +1,6 @@
-import './style.css';
+import { Button } from './styled';
 const FormButton = ({ buttonBody, type }) => {
-	return (
-		<button className='form__button' type={type}>
-			{buttonBody}
-		</button>
-	);
+	return <Button type={type}>{buttonBody}</Button>;
 };
 
 export default FormButton;

@@ -1,4 +1,3 @@
-import './style.css';
 import Select from './Select';
 import Input from './Input';
 import FormButton from './FormButton';
@@ -7,11 +6,13 @@ import FormRequiredText from './FormRequiredText';
 import FormLegend from './FormLegend';
 import FormData from './FormData';
 
+import { Wrapper, Fieldset, Division } from './styled';
+
 import { useState } from 'react';
 
 const Form = () => {
 	const [amount, setAmount] = useState('');
-	const [result, setResult] = useState();
+	const [result, setResult] = useState(0);
 	const [actualCourse, setActualCourse] = useState('4.5697');
 
 	const selectedCourseDisplay = e => {
@@ -34,19 +35,19 @@ const Form = () => {
 	};
 
 	return (
-		<form className='form' onSubmit={onFormSubmit} onReset={onReset}>
-			<fieldset className='form__fieldset'>
+		<Wrapper onSubmit={onFormSubmit} onReset={onReset}>
+			<Fieldset>
 				<FormLegend title='Currency Converter' />
-				<div className='form__element right'>
+				<Division right>
 					<FormData />
-				</div>
-				<div className='form__element'>
+				</Division>
+				<Division>
 					<Select title='Waluta:' onChange={selectedCourseDisplay} />
-				</div>
-				<div className='form__element'>
+				</Division>
+				<Division>
 					<Input title='Aktualny kurs*:' type='number' name='actualCourse' required={true} readOnly value={actualCourse} />
-				</div>
-				<div className='form__element'>
+				</Division>
+				<Division>
 					<Input
 						title='Ilość*:'
 						type='number'
@@ -58,19 +59,19 @@ const Form = () => {
 						value={amount}
 						onChange={e => setAmount(e.target.value)}
 					/>
-				</div>
+				</Division>
 				<FormRequiredText text='* - pola obowiązkowe' />
-				<div className='form__element'>
+				<Division>
 					<FormButton buttonBody='Przelicz' type='submit' />
-				</div>
-				<div className='form__element'>
+				</Division>
+				<Division>
 					<FormScore result={result} />
-				</div>
-				<div className='form__element'>
+				</Division>
+				<Division>
 					<FormButton buttonBody='Wyczyść kalkulator' type='reset' />
-				</div>
-			</fieldset>
-		</form>
+				</Division>
+			</Fieldset>
+		</Wrapper>
 	);
 };
 

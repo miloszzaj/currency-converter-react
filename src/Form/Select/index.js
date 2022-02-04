@@ -1,19 +1,19 @@
-import './style.css';
+import { Title, Content } from './styled';
 import { currencies } from '../../currencies';
 import React from 'react';
 
 const Select = ({ title, onChange }) => {
 	return (
 		<label>
-			<span className='form__labelText'>{title}</span>
+			<Title>{title}</Title>
 
-			<select className='form__select' onChange={onChange}>
+			<Content onChange={onChange}>
 				{currencies.map(option => (
 					<option value={option.course} key={option.course}>
 						{option.currency}
 					</option>
 				))}
-			</select>
+			</Content>
 		</label>
 	);
 };

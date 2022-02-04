@@ -1,6 +1,7 @@
-import './style.css';
+import { Text } from './styled';
+
 const FormRequiredText = ({ text }) => {
-	return <p className='form__requiredText'>{text}</p>;
+	return <Text>{text}</Text>;
 };
 
 export default FormRequiredText;

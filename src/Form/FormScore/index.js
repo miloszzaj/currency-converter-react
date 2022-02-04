@@ -1,9 +1,11 @@
-import './style.css';
+import { Wrapper, Content } from './styled';
+
 const FormScore = ({ result }) => {
 	return (
-		<label className='form__scoreText'>
-			Ilość PLN: <strong className='form__score'>{result ? result : '0.000'}</strong>
-		</label>
+		<Wrapper>
+			Ilość PLN:
+			<Content color={result !== 0 ? true : false}>{result ? result : '0.000'}</Content>
+		</Wrapper>
 	);
 };
 

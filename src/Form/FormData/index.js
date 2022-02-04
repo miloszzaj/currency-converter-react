@@ -1,13 +1,13 @@
-import './style.css';
+import { Data } from './styled';
 import { useCurrentDate } from '../../useCurrentDate';
 
 const FormData = () => {
 	const date = useCurrentDate();
 	return (
-		<div className='form__data'>
+		<Data>
 			Dzisiaj jest {date.toLocaleDateString('pl', { weekend: 'long', day: 'numeric', month: 'long', year: 'numeric' })},
 			{date.toLocaleTimeString()}
-		</div>
+		</Data>
 	);
 };
 

@@ -1,7 +1,7 @@
-import './style.css';
+import { Legend } from './styled';
 
 const FormLegend = ({ title }) => {
-	return <legend className='form__legend'>{title}</legend>;
+	return <Legend>{title}</Legend>;
 };
 
 export default FormLegend;
