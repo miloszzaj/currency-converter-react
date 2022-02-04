@@ -1,3 +1,17 @@
+import { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyle = createGlobalStyle`
+html {
+  box-sizing: border-box;
+}
+
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+
+
 body {
   margin: 0;
   background-image: url("images/background.jpg");
@@ -11,12 +25,9 @@ body {
   font-family: 'Fuzzy Bubbles',
   cursive
 }
- button, input, select {
+button, input, select {
   font-family: 'Fuzzy Bubbles',
   cursive
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+`;
