@@ -12,7 +12,7 @@ import { useState } from 'react';
 
 const Form = () => {
 	const [amount, setAmount] = useState('');
-	const [result, setResult] = useState(0);
+	const [result, setResult] = useState();
 	const [actualCourse, setActualCourse] = useState('4.5697');
 
 	const selectedCourseDisplay = e => {
