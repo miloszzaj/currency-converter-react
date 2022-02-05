@@ -25,12 +25,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Fuzzy Bubbles',
-  cursive
+font-family: 'Caudex', serif
 }
 button, input, select {
-  font-family: 'Fuzzy Bubbles',
-  cursive
+  font-family: 'Caudex', serif
 }
 
 `;
