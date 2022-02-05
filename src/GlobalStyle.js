@@ -1,6 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
+import img from './background.jpg';
 
 export const GlobalStyle = createGlobalStyle`
+
+
 html {
   box-sizing: border-box;
 }
@@ -14,7 +17,7 @@ html {
 
 body {
   margin: 0;
-  background-image: url("images/background.jpg");
+  background-image: url(${img});
   background-size: cover;
   background-attachment: fixed;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
