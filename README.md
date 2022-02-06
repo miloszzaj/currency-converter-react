@@ -17,6 +17,9 @@ Please, enter a value of one currency and course of this currency to be converte
 - JavaScript
 - Webpack
 - Babel
+- Custom hooks
+- Styled components
+- Local storage
 
 ## Preview
 ![preview](https://github.com/miloszzaj/currency-converter-react/blob/master/demo.gif)

@@ -6,7 +6,6 @@ const Select = ({ title, onChange }) => {
 	return (
 		<label>
 			<Title>{title}</Title>
-
 			<Content onChange={onChange}>
 				{currencies.map(option => (
 					<option value={option.course} key={option.course}>
