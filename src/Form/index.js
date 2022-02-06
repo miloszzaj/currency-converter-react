@@ -45,7 +45,15 @@ const Form = () => {
 					<Select title='Waluta:' onChange={selectedCourseDisplay} />
 				</Division>
 				<Division>
-					<Input title='Aktualny kurs*:' type='number' name='actualCourse' required={true} readOnly value={actualCourse} />
+					<Input
+						title='Aktualny kurs*:'
+						type='number'
+						name='actualCourse'
+						required={true}
+						defaultValue={actualCourse}
+						readOnly
+						value={actualCourse}
+					/>
 				</Division>
 				<Division>
 					<Input
