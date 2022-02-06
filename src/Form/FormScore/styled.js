@@ -5,11 +5,11 @@ export const Wrapper = styled.label`
 `;
 
 export const Content = styled.strong`
-	color: rgb(158, 158, 158);
+	color: ${({ theme }) => theme.color.pumice};
 	${props =>
 		props.color &&
 		css`
-			color: rgb(43, 144, 103);
+			color: ${({ theme }) => theme.color.eucalyptus};
 			font-weight: 700;
 		`}
 `;

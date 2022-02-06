@@ -8,7 +8,7 @@ export const Title = styled.span`
 
 export const Content = styled.select`
 	border-radius: 5px;
-	border: 1px solid rgb(116, 148, 106);
+	border: 1px solid ${({ theme }) => theme.color.highland};
 	width: 300px;
 	line-height: 1.5;
 	padding: 10px;
@@ -16,7 +16,7 @@ export const Content = styled.select`
 
 export const ContentInput = styled.input`
 	border-radius: 5px;
-	border: 1px solid rgb(116, 148, 106);
+	border: 1px solid ${({ theme }) => theme.color.highland};
 	width: 300px;
 	line-height: 1.5;
 	padding: 10px;
