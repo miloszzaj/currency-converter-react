@@ -1,11 +1,12 @@
-import { Title, ContentInput } from '../Select/styled';
+import { Title, Content } from '../Select/styled';
 // import { useState } from 'react';
 
 const Input = ({ title, type, name, step, min, placeholder, required, value, onChange }) => {
 	return (
 		<label>
 			<Title>{title}</Title>
-			<ContentInput
+			<Content
+				as='input'
 				className='form__input'
 				type={type}
 				name={name}
