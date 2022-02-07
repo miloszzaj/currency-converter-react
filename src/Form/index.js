@@ -5,15 +5,18 @@ import FormScore from './FormScore';
 import FormRequiredText from './FormRequiredText';
 import FormLegend from './FormLegend';
 import FormData from './FormData';
+// import axios from 'axios';
 
 import { Wrapper, Fieldset, Division } from './styled';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Form = () => {
 	const [amount, setAmount] = useState('');
 	const [result, setResult] = useState();
 	const [actualCourse, setActualCourse] = useState('4.5697');
+
+	const [rates, setRates] = useState();
 
 	const selectedCourseDisplay = e => {
 		setActualCourse(e.target.value);
@@ -33,6 +36,38 @@ const Form = () => {
 		setActualCourse('4.5697');
 		setResult();
 	};
+
+	useEffect(() => {
+		const downloadData = async () => {
+			try {
+				const promise = fetch('https://api.exchangerate.host/latest?base=PLN');
+				const res = await promise;
+				if (!res.ok) {
+					throw new Error(res.statusText);
+				}
+				const prod = await res.json();
+				setRates(prod.rates);
+			} catch (error) {
+				console.error('coś źle', error);
+			}
+		};
+		setTimeout(downloadData, 2000);
+	}, []);
+	const textFunction = () => console.log(rates);
+	setTimeout(textFunction, 2000);
+
+	// axios
+	// 	.get('https://api.exchangerate.host/latest?base=PLN')
+	// 	.then(response => console.log(response.data))
+	// 	.then(x => setTest(x.rates))
+	// 	.then(() => console.log(test))
+	// 	.catch(error => console.error(error));
+
+	// axios
+	// 	.get('https://api.exchangerate.host/latest?base=USD')
+	// 	.then(response => console.log(response))
+	// 	.then(response => setTest({ array: [...Object.entries(response.data.rates)] }))
+	// 	.catch(error => console.error(error));
 
 	return (
 		<Wrapper onSubmit={onFormSubmit} onReset={onReset}>
