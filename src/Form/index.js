@@ -5,7 +5,7 @@ import FormScore from './FormScore';
 import FormRequiredText from './FormRequiredText';
 import FormLegend from './FormLegend';
 import FormData from './FormData';
-// import axios from 'axios';
+import axios from 'axios';
 
 import { Wrapper, Fieldset, Division } from './styled';
 
@@ -36,31 +36,55 @@ const Form = () => {
 		setActualCourse('4.5697');
 		setResult();
 	};
+	// useEffect(() => {
+	// 	const test = () => {
+	// 		fetch('https://api.exchangerate.host/latest?base=PLN')
+	// 			.then(res => res.json())
+	// 			.then(pro => setRates(pro.rates))
+	// 			.then(() => console.log(rates));
+	// 	};
+	// 	setTimeout(test, 2000);
+	// }, []);
+
+	// useEffect(() => {
+	// 	const downloadData = async () => {
+	// 		try {
+	// 			const promise = fetch('https://api.exchangerate.host/latest?base=PLN');
+	// 			const res = await promise;
+	// 			if (!res.ok) {
+	// 				throw new Error(res.statusText);
+	// 			}
+	// 			const prod = await res.json();
+	// 			setRates(prod.rates);
+	// 		} catch (error) {
+	// 			console.error('coś źle', error);
+	// 		}
+	// 	};
+	// 	setTimeout(downloadData, 2000);
+	// }, []);
+	// const textFunction = () => console.log(rates);
+	// setTimeout(textFunction, 2000);
 
 	useEffect(() => {
-		const downloadData = async () => {
-			try {
-				const promise = fetch('https://api.exchangerate.host/latest?base=PLN');
-				const res = await promise;
-				if (!res.ok) {
-					throw new Error(res.statusText);
+		const test = () => {
+			(async () => {
+				try {
+					const res = await axios.get('https://api.exchangerate.host/latest?base=PLN');
+					setRates(res.data.rates);
+					console.log(rates);
+				} catch (error) {
+					console.error(error);
 				}
-				const prod = await res.json();
-				setRates(prod.rates);
-			} catch (error) {
-				console.error('coś źle', error);
-			}
+			})();
 		};
-		setTimeout(downloadData, 2000);
+		setTimeout(test, 2000);
 	}, []);
-	const textFunction = () => console.log(rates);
-	setTimeout(textFunction, 2000);
 
 	// axios
 	// 	.get('https://api.exchangerate.host/latest?base=PLN')
-	// 	.then(response => console.log(response.data))
-	// 	.then(x => setTest(x.rates))
-	// 	.then(() => console.log(test))
+	// 	.then(response => console.log(response.data.rates.AED))
+	// 	.then(x => setRates(x))
+	// 	.then(() => console.log(rates))
 	// 	.catch(error => console.error(error));
 
 	// axios
@@ -110,6 +134,7 @@ const Form = () => {
 				<Division>
 					<FormScore result={result} />
 				</Division>
+				{/* <Division>{rates ? rates : 'null'}</Division> */}
 				<Division>
 					<FormButton buttonBody='Wyczyść kalkulator' type='reset' />
 				</Division>
