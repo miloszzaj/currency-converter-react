@@ -36,34 +36,25 @@ const Form = () => {
 		setActualCourse('4.5697');
 		setResult();
 	};
-	// useEffect(() => {
-	// 	const test = () => {
-	// 		fetch('https://api.exchangerate.host/latest?base=PLN')
-	// 			.then(res => res.json())
-	// 			.then(pro => setRates(pro.rates))
-	// 			.then(() => console.log(rates));
-	// 	};
-	// 	setTimeout(test, 2000);
-	// }, []);
 
-	// useEffect(() => {
-	// 	const downloadData = async () => {
-	// 		try {
-	// 			const promise = fetch('https://api.exchangerate.host/latest?base=PLN');
-	// 			const res = await promise;
-	// 			if (!res.ok) {
-	// 				throw new Error(res.statusText);
-	// 			}
-	// 			const prod = await res.json();
-	// 			setRates(prod.rates);
-	// 		} catch (error) {
-	// 			console.error('coś źle', error);
-	// 		}
-	// 	};
-	// 	setTimeout(downloadData, 2000);
-	// }, []);
-	// const textFunction = () => console.log(rates);
-	// setTimeout(textFunction, 2000);
+	useEffect(() => {
+		const downloadData = async () => {
+			try {
+				const promise = fetch('https://api.exchangerate.host/latest?base=PLN');
+				const res = await promise;
+				if (!res.ok) {
+					throw new Error(res.statusText);
+				}
+				const prod = await res.json();
+				setRates(prod.rates);
+			} catch (error) {
+				console.error('coś źle', error);
+			}
+		};
+		setTimeout(downloadData, 2000);
+	}, []);
+	const textFunction = () => console.log(rates);
+	setTimeout(textFunction, 2000);
 
 	useEffect(() => {
 		const test = () => {
@@ -71,7 +62,6 @@ const Form = () => {
 				try {
 					const res = await axios.get('https://api.exchangerate.host/latest?base=PLN');
 					setRates(res.data.rates);
-					console.log(rates);
 				} catch (error) {
 					console.error(error);
 				}
@@ -79,19 +69,7 @@ const Form = () => {
 		};
 		setTimeout(test, 2000);
 	}, []);
-
-	// axios
-	// 	.get('https://api.exchangerate.host/latest?base=PLN')
-	// 	.then(response => console.log(response.data.rates.AED))
-	// 	.then(x => setRates(x))
-	// 	.then(() => console.log(rates))
-	// 	.catch(error => console.error(error));
-
-	// axios
-	// 	.get('https://api.exchangerate.host/latest?base=USD')
-	// 	.then(response => console.log(response))
-	// 	.then(response => setTest({ array: [...Object.entries(response.data.rates)] }))
-	// 	.catch(error => console.error(error));
+	console.log(rates);
 
 	return (
 		<Wrapper onSubmit={onFormSubmit} onReset={onReset}>
@@ -101,7 +79,7 @@ const Form = () => {
 					<FormData />
 				</Division>
 				<Division>
-					<Select title='Waluta:' onChange={selectedCourseDisplay} />
+					<Select rates={rates} title='Waluta:' onChange={selectedCourseDisplay} />
 				</Division>
 				<Division>
 					<Input
