@@ -5,20 +5,29 @@ import FormScore from './FormScore';
 import FormRequiredText from './FormRequiredText';
 import FormLegend from './FormLegend';
 import FormData from './FormData';
+import FormDataDownloadDate from './FormDataDownloadDate/FormDataDolnloadDate';
 
 import { Wrapper, Fieldset, Division } from './styled';
 
 import { useCurrentRates } from '../useCurrentRates';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Form = () => {
 	const [amount, setAmount] = useState('');
 	const [result, setResult] = useState();
 	const [actualCourse, setActualCourse] = useState('4.5697');
+	const [cur, setCur] = useState();
 
-	const selectedCourseDisplay = e => {
+	// const selectedCourseDisplay = e => {
+	// 	setActualCourse(e.target.value);
+	// 	console.log(actualCourse);
+	// };
+
+	const setCurOnChange = e => {
+		setCur(e.target.value);
 		setActualCourse(e.target.value);
+		console.log(cur);
 	};
 	const calculate = () => {
 		const res = amount * actualCourse;
@@ -36,13 +45,11 @@ const Form = () => {
 		setResult();
 	};
 
-	const rates = useCurrentRates();
+	const { rates, date } = useCurrentRates();
 
-	// useEffect(() => {
-	// 	console.log(rates);
-
-	// 	console.log(Object.keys(rates));
-	// }, [rates]);
+	useEffect(() => {
+		console.log(rates);
+	}, [rates]);
 
 	// useEffect(() => {
 	// 	const downloadData = async () => {
@@ -73,12 +80,12 @@ const Form = () => {
 					<FormData />
 				</Division>
 				<Division>
-					<Select rates={rates} title='Waluta:' onChange={selectedCourseDisplay} />
+					<Select rates={rates} title='Waluta:' onChange={setCurOnChange} />
 				</Division>
 				<Division>
 					<Input
 						title='Aktualny kurs*:'
-						type='number'
+						// type='number'
 						name='actualCourse'
 						required={true}
 						defaultValue={actualCourse}
@@ -106,7 +113,9 @@ const Form = () => {
 				<Division>
 					<FormScore result={result} />
 				</Division>
-				<Division>{rates ? rates.AED : 'null'}</Division>
+				<Division>
+					<FormDataDownloadDate date={date} />
+				</Division>
 				<Division>
 					<FormButton buttonBody='Wyczyść kalkulator' type='reset' />
 				</Division>

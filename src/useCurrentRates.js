@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export const useCurrentRates = () => {
 	const [rates, setRates] = useState();
+	const [date, setDate] = useState();
 
 	useEffect(() => {
 		const test = () => {
@@ -10,6 +11,7 @@ export const useCurrentRates = () => {
 				try {
 					const res = await axios.get('https://api.exchangerate.host/latest?base=PLN');
 					setRates(res.data.rates);
+					setDate(res.data.date);
 				} catch (error) {
 					console.error(error);
 				}
@@ -17,6 +19,6 @@ export const useCurrentRates = () => {
 		};
 		setTimeout(test, 500);
 	}, []);
-	console.log(rates);
-	return rates;
+	console.log(rates, date);
+	return { rates, date };
 };
