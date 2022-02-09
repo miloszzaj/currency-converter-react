@@ -6,12 +6,10 @@ const Select = ({ title, onChange, rates }) => {
 	return (
 		<label>
 			<Title>{title}</Title>
-			<Content onChange={onChange}>
-				{currencies.map(option => (
-					<option value={option.course} key={option.course}>
-						{option.currency}
-					</option>
-				))}
+			<Content>
+				{Object.keys(currencies).map(currency => {
+					return <option key={currency}>{currency}</option>;
+				})}
 			</Content>
 		</label>
 	);

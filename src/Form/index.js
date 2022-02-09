@@ -39,6 +39,12 @@ const Form = () => {
 	const rates = useCurrentRates();
 
 	// useEffect(() => {
+	// 	console.log(rates);
+
+	// 	console.log(Object.keys(rates));
+	// }, [rates]);
+
+	// useEffect(() => {
 	// 	const downloadData = async () => {
 	// 		try {
 	// 			const promise = fetch('https://api.exchangerate.host/latest?base=PLN');
@@ -100,7 +106,7 @@ const Form = () => {
 				<Division>
 					<FormScore result={result} />
 				</Division>
-				{/* <Division>{rates ? rates : 'null'}</Division> */}
+				<Division>{rates ? rates.AED : 'null'}</Division>
 				<Division>
 					<FormButton buttonBody='Wyczyść kalkulator' type='reset' />
 				</Division>

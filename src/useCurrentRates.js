@@ -15,7 +15,7 @@ export const useCurrentRates = () => {
 				}
 			})();
 		};
-		setTimeout(test, 2000);
+		setTimeout(test, 500);
 	}, []);
 	console.log(rates);
 	return rates;
