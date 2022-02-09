@@ -5,18 +5,17 @@ import FormScore from './FormScore';
 import FormRequiredText from './FormRequiredText';
 import FormLegend from './FormLegend';
 import FormData from './FormData';
-import axios from 'axios';
 
 import { Wrapper, Fieldset, Division } from './styled';
 
-import { useEffect, useState } from 'react';
+import { useCurrentRates } from '../useCurrentRates';
+
+import { useState } from 'react';
 
 const Form = () => {
 	const [amount, setAmount] = useState('');
 	const [result, setResult] = useState();
 	const [actualCourse, setActualCourse] = useState('4.5697');
-
-	const [rates, setRates] = useState();
 
 	const selectedCourseDisplay = e => {
 		setActualCourse(e.target.value);
@@ -37,39 +36,28 @@ const Form = () => {
 		setResult();
 	};
 
-	useEffect(() => {
-		const downloadData = async () => {
-			try {
-				const promise = fetch('https://api.exchangerate.host/latest?base=PLN');
-				const res = await promise;
-				if (!res.ok) {
-					throw new Error(res.statusText);
-				}
-				const prod = await res.json();
-				setRates(prod.rates);
-			} catch (error) {
-				console.error('coś źle', error);
-			}
-		};
-		setTimeout(downloadData, 2000);
-	}, []);
-	const textFunction = () => console.log(rates);
-	setTimeout(textFunction, 2000);
+	const rates = useCurrentRates();
 
-	useEffect(() => {
-		const test = () => {
-			(async () => {
-				try {
-					const res = await axios.get('https://api.exchangerate.host/latest?base=PLN');
-					setRates(res.data.rates);
-				} catch (error) {
-					console.error(error);
-				}
-			})();
-		};
-		setTimeout(test, 2000);
-	}, []);
-	console.log(rates);
+	// useEffect(() => {
+	// 	const downloadData = async () => {
+	// 		try {
+	// 			const promise = fetch('https://api.exchangerate.host/latest?base=PLN');
+	// 			const res = await promise;
+	// 			if (!res.ok) {
+	// 				throw new Error(res.statusText);
+	// 			}
+	// 			const prod = await res.json();
+	// 			setRates(prod.rates);
+	// 		} catch (error) {
+	// 			console.error('coś źle', error);
+	// 		}
+	// 	};
+	// 	setTimeout(downloadData, 2000);
+	// }, []);
+	// const textFunction = () => console.log(rates);
+	// setTimeout(textFunction, 2000);
+
+	// console.log(rates);
 
 	return (
 		<Wrapper onSubmit={onFormSubmit} onReset={onReset}>
