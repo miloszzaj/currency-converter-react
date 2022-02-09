@@ -2,18 +2,18 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export const useCurrentRates = () => {
-	const [rates, setRates] = useState();
+	const [rates, setRates] = useState({});
 	const [date, setDate] = useState();
 
 	useEffect(() => {
 		const test = () => {
 			(async () => {
 				try {
-					const res = await axios.get('https://api.exchangerate.host/latest?base=PLN');
-					setRates(res.data.rates);
+					const res = await axios.get('htps://api.exchangerate.host/latest?base=PLN');
+					setRates({ ratio: res.data.rates, status: 'ok' });
 					setDate(res.data.date);
-				} catch (error) {
-					console.error(error);
+				} catch {
+					setRates({ status: 'error' });
 				}
 			})();
 		};
