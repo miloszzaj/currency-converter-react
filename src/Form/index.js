@@ -46,7 +46,7 @@ const Form = () => {
 		<Wrapper onSubmit={onFormSubmit} onReset={onReset}>
 			<Fieldset>
 				<FormLegend title='Currency Converter' />
-				{rates.status === 'ok' ? (
+				{rates.status === 'ok' && (
 					<>
 						<Division right>
 							<FormData />
@@ -92,11 +92,9 @@ const Form = () => {
 							<FormButton buttonBody='Wyczyść kalkulator' type='reset' />
 						</Division>
 					</>
-				) : rates.status === 'loading' ? (
-					<div>coś</div>
-				) : (
-					<FormFailed />
 				)}
+				{rates.status === 'loading' && <div>coś</div>}
+				{rates.status === 'error' && <FormFailed />}
 			</Fieldset>
 		</Wrapper>
 	);
