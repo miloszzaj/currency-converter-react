@@ -8,6 +8,7 @@ export const Button = styled.button`
 	background-color: ${({ theme }) => theme.color.siam};
 	padding: 20px;
 	width: 200px;
+	font-size: 1rem;
 
 	&:hover {
 		cursor: pointer;

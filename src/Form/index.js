@@ -49,8 +49,8 @@ const Form = () => {
 	const { rates, date } = useCurrentRates();
 
 	useEffect(() => {
-		console.log(rates.status);
-	}, [rates]);
+		console.log(rates[actualCourse]);
+	}, [cur]);
 
 	// useEffect(() => {
 	// 	const downloadData = async () => {
