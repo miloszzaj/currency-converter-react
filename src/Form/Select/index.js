@@ -1,16 +1,16 @@
 import { Title, Content } from './styled';
-import { currencies } from '../../currencies';
 import React from 'react';
 
-const Select = ({ title, onChange }) => {
+const Select = ({ title, onChange, rates }) => {
 	return (
 		<label>
 			<Title>{title}</Title>
-			<Content onChange={e => onChange(e)}>
-				{Object.keys(currencies).map(currency => {
+			<Content onChange={e => onChange(e.target.value)}>
+				{Object.entries(rates.ratio).map(currencyData => {
+					console.log(currencyData);
 					return (
-						<option key={currency} value={currency}>
-							{currency}
+						<option key={currencyData[0]} value={currencyData[1]}>
+							{currencyData[0]}
 						</option>
 					);
 				})}

@@ -18,18 +18,12 @@ const Form = () => {
 	const [amount, setAmount] = useState('');
 	const [result, setResult] = useState();
 	const [actualCourse, setActualCourse] = useState('4.5697');
-	const [cur, setCur] = useState();
 
-	// const selectedCourseDisplay = e => {
-	// 	setActualCourse(e.target.value);
-	// 	console.log(actualCourse);
-	// };
-
-	const setCurOnChange = e => {
-		setCur(e.target.value);
-		setActualCourse(e.target.value);
-		console.log(cur);
+	const selectedCourseDisplay = value => {
+		setActualCourse(value);
+		console.log(actualCourse);
 	};
+
 	const calculate = () => {
 		const res = amount * actualCourse;
 		setResult(res.toFixed(3));
@@ -47,10 +41,6 @@ const Form = () => {
 	};
 
 	const { rates, date } = useCurrentRates();
-
-	useEffect(() => {
-		console.log(rates[actualCourse]);
-	}, [cur]);
 
 	// useEffect(() => {
 	// 	const downloadData = async () => {
@@ -83,7 +73,7 @@ const Form = () => {
 							<FormData />
 						</Division>
 						<Division>
-							<Select rates={rates} title='Waluta:' onChange={setCurOnChange} />
+							<Select rates={rates} title='Waluta:' onChange={selectedCourseDisplay} />
 						</Division>
 						<Division>
 							<Input
