@@ -5,23 +5,25 @@ import FormScore from './FormScore';
 import FormRequiredText from './FormRequiredText';
 import FormLegend from './FormLegend';
 import FormData from './FormData';
-import FormDataDownloadDate from './FormDataDownloadDate/FormDataDolnloadDate';
+import FormDataDownloadDate from './FormDataDownloadDate/FormDataDownloadDate';
 import FormFailed from './FormFailed/FormFailed';
 
 import { Wrapper, Fieldset, Division } from './styled';
 
 import { useCurrentRates } from '../useCurrentRates';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const Form = () => {
-	const [amount, setAmount] = useState('');
+	const [amount, setAmount] = useState();
 	const [result, setResult] = useState();
-	const [actualCourse, setActualCourse] = useState('4.5697');
+	const [actualCourse, setActualCourse] = useState();
+
+	const { rates, date } = useCurrentRates();
 
 	const selectedCourseDisplay = value => {
 		setActualCourse(value);
-		console.log(actualCourse);
+		amount ? calculate() : setResult('wpisz jakąś ilość PLN');
 	};
 
 	const calculate = () => {
@@ -35,33 +37,10 @@ const Form = () => {
 	};
 
 	const onReset = () => {
-		setAmount('');
-		setActualCourse('4.5697');
+		setAmount();
+		setActualCourse(actualCourse);
 		setResult();
 	};
-
-	const { rates, date } = useCurrentRates();
-
-	// useEffect(() => {
-	// 	const downloadData = async () => {
-	// 		try {
-	// 			const promise = fetch('https://api.exchangerate.host/latest?base=PLN');
-	// 			const res = await promise;
-	// 			if (!res.ok) {
-	// 				throw new Error(res.statusText);
-	// 			}
-	// 			const prod = await res.json();
-	// 			setRates(prod.rates);
-	// 		} catch (error) {
-	// 			console.error('coś źle', error);
-	// 		}
-	// 	};
-	// 	setTimeout(downloadData, 2000);
-	// }, []);
-	// const textFunction = () => console.log(rates);
-	// setTimeout(textFunction, 2000);
-
-	// console.log(rates);
 
 	return (
 		<Wrapper onSubmit={onFormSubmit} onReset={onReset}>
@@ -78,7 +57,7 @@ const Form = () => {
 						<Division>
 							<Input
 								title='Aktualny kurs*:'
-								// type='number'
+								type='number'
 								name='actualCourse'
 								required={true}
 								defaultValue={actualCourse}
@@ -113,6 +92,8 @@ const Form = () => {
 							<FormButton buttonBody='Wyczyść kalkulator' type='reset' />
 						</Division>
 					</>
+				) : rates.status === 'loading' ? (
+					<div>coś</div>
 				) : (
 					<FormFailed />
 				)}

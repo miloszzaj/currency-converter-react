@@ -7,7 +7,6 @@ const Select = ({ title, onChange, rates }) => {
 			<Title>{title}</Title>
 			<Content onChange={e => onChange(e.target.value)}>
 				{Object.entries(rates.ratio).map(currencyData => {
-					console.log(currencyData);
 					return (
 						<option key={currencyData[0]} value={currencyData[1]}>
 							{currencyData[0]}

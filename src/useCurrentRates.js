@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export const useCurrentRates = () => {
-	const [rates, setRates] = useState({});
+	const [rates, setRates] = useState({ status: 'loading' });
 	const [date, setDate] = useState();
 
 	useEffect(() => {
@@ -19,6 +19,5 @@ export const useCurrentRates = () => {
 		};
 		setTimeout(test, 500);
 	}, []);
-	console.log(rates, date);
 	return { rates, date };
 };
