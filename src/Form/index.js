@@ -13,6 +13,7 @@ import { Wrapper, Fieldset, Division } from './styled';
 import { useCurrentRates } from '../useCurrentRates';
 
 import { useState } from 'react';
+import FormLoading from './FormLoading/FormLoading';
 
 const Form = () => {
 	const [amount, setAmount] = useState();
@@ -93,7 +94,7 @@ const Form = () => {
 						</Division>
 					</>
 				)}
-				{rates.status === 'loading' && <div>coś</div>}
+				{rates.status === 'loading' && <FormLoading />}
 				{rates.status === 'error' && <FormFailed />}
 			</Fieldset>
 		</Wrapper>
