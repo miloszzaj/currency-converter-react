@@ -19,12 +19,14 @@ const Form = () => {
 	const [amount, setAmount] = useState();
 	const [result, setResult] = useState();
 	const [actualCourse, setActualCourse] = useState();
+	const [currencyShort, setCurrencyShort] = useState('EUR');
 
 	const { rates, date } = useCurrentRates();
 
-	const selectedCourseDisplay = value => {
-		setActualCourse(value);
-		amount ? calculate() : setResult('wpisz jakąś ilość PLN');
+	const selectedCourseDisplay = e => {
+		setActualCourse(e.target.value);
+		setCurrencyShort(e.target.key);
+		calculate();
 	};
 
 	const calculate = () => {
@@ -43,6 +45,10 @@ const Form = () => {
 		setResult();
 	};
 
+	const onTest = e => {
+		setCurrencyShort(e.target.value);
+	};
+
 	return (
 		<Wrapper onSubmit={onFormSubmit} onReset={onReset}>
 			<Fieldset>
@@ -53,11 +59,11 @@ const Form = () => {
 							<FormData />
 						</Division>
 						<Division>
-							<Select rates={rates} title='Waluta:' onChange={selectedCourseDisplay} />
+							<Select rates={rates} title='Waluta:' onTest={onTest} onChange={selectedCourseDisplay} />
 						</Division>
 						<Division>
 							<Input
-								title='Aktualny kurs*:'
+								title='Aktualny kurs:'
 								type='number'
 								name='actualCourse'
 								required={true}
@@ -84,7 +90,7 @@ const Form = () => {
 							<FormButton buttonBody='Przelicz' type='submit' />
 						</Division>
 						<Division>
-							<FormScore result={result} />
+							<FormScore result={result} amount={amount} currencyShort={currencyShort} />
 						</Division>
 						<Division>
 							<FormDataDownloadDate date={date} />
