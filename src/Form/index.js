@@ -24,8 +24,9 @@ const Form = () => {
 	const { rates, date } = useCurrentRates();
 
 	const selectedCourseDisplay = e => {
+		const selectedIndex = e.target.options.selectedIndex;
+		setCurrencyShort(e.target.options[selectedIndex].getAttribute('short'));
 		setActualCourse(e.target.value);
-		setCurrencyShort(e.target.key);
 		calculate();
 	};
 
@@ -45,10 +46,6 @@ const Form = () => {
 		setResult();
 	};
 
-	const onTest = e => {
-		setCurrencyShort(e.target.value);
-	};
-
 	return (
 		<Wrapper onSubmit={onFormSubmit} onReset={onReset}>
 			<Fieldset>
@@ -59,7 +56,7 @@ const Form = () => {
 							<FormData />
 						</Division>
 						<Division>
-							<Select rates={rates} title='Waluta:' onTest={onTest} onChange={selectedCourseDisplay} />
+							<Select rates={rates} title='Waluta:' onChange={selectedCourseDisplay} />
 						</Division>
 						<Division>
 							<Input

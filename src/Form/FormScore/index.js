@@ -6,7 +6,7 @@ const FormScore = ({ result, amount, actualCourse, currencyShort }) => {
 			Ilość PLN:{' '}
 			<Content color={result ? 1 : 0}>
 				{' '}
-				{amount} PLN to {result} tyle ...{currencyShort}
+				{amount} PLN to {result} {currencyShort}
 				{/* {result ? result : '0.000'} */}
 			</Content>
 		</Wrapper>
