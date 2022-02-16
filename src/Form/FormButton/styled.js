@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-	margin: 0 auto;
+	margin: 20px auto;
 	color: ivory;
 	border-radius: 5px;
 	border: 1px solid ${({ theme }) => theme.color.siam};

@@ -1,8 +1,8 @@
-import { Title, Content } from './styled';
+import { Title, Content, Wrapper } from './styled';
 
 const Select = ({ title, onChange, rates }) => {
 	return (
-		<label>
+		<Wrapper>
 			<Title>{title}</Title>
 			<Content onChange={e => onChange(e)}>
 				{Object.entries(rates.ratio).map(currencyData => {
@@ -13,7 +13,7 @@ const Select = ({ title, onChange, rates }) => {
 					);
 				})}
 			</Content>
-		</label>
+		</Wrapper>
 	);
 };
 

@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const Wrapper = styled.label`
+	margin: 20px auto;
+`;
+
 export const Title = styled.span`
 	width: 150px;
 	display: inline-block;

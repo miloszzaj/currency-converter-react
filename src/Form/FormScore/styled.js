@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.label`
+	margin: 20px auto;
 	font-size: 25px;
 `;
 

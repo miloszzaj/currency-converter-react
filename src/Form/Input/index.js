@@ -1,9 +1,9 @@
-import { Title, Content } from '../Select/styled';
+import { Title, Content, Wrapper } from '../Select/styled';
 // import { useState } from 'react';
 
 const Input = ({ title, type, name, step, min, placeholder, required, readOnly, value, onChange }) => {
 	return (
-		<label>
+		<Wrapper>
 			<Title>{title}</Title>
 			<Content
 				as='input'
@@ -18,7 +18,7 @@ const Input = ({ title, type, name, step, min, placeholder, required, readOnly, 
 				readOnly={readOnly}
 				onChange={onChange}
 			/>
-		</label>
+		</Wrapper>
 	);
 };
 

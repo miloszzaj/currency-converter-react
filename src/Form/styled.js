@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Wrapper = styled.form`
 	max-width: 550px;
@@ -14,15 +14,4 @@ export const Fieldset = styled.fieldset`
 	border-radius: 10px;
 	background-color: ${({ theme }) => theme.color.orangeWhite};
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 25px;
-`;
-
-export const Container = styled.div`
-	margin: 20px auto;
-	line-height: 1.5;
-
-	${props =>
-		props.right &&
-		css`
-			margin-right: 40px;
-		`}
 `;
