@@ -7,11 +7,8 @@ import FormLegend from './FormLegend';
 import FormData from './FormData';
 import FormDataDownloadDate from './FormDataDownloadDate/FormDataDownloadDate';
 import FormFailed from './FormFailed/FormFailed';
-
-import { Wrapper, Fieldset, Division } from './styled';
-
+import { Wrapper, Fieldset, Container } from './styled';
 import { useCurrentRates } from '../useCurrentRates';
-
 import { useState } from 'react';
 import FormLoading from './FormLoading/FormLoading';
 
@@ -52,13 +49,13 @@ const Form = () => {
 				<FormLegend title='Currency Converter' />
 				{rates.status === 'ok' && (
 					<>
-						<Division right>
+						<Container right>
 							<FormData />
-						</Division>
-						<Division>
+						</Container>
+						<Container>
 							<Select rates={rates} title='Waluta:' onChange={selectedCourseDisplay} />
-						</Division>
-						<Division>
+						</Container>
+						<Container>
 							<Input
 								title='Aktualny kurs:'
 								type='number'
@@ -68,8 +65,8 @@ const Form = () => {
 								readOnly
 								value={actualCourse}
 							/>
-						</Division>
-						<Division>
+						</Container>
+						<Container>
 							<Input
 								title='Ilość*:'
 								type='number'
@@ -81,20 +78,20 @@ const Form = () => {
 								value={amount}
 								onChange={e => setAmount(e.target.value)}
 							/>
-						</Division>
+						</Container>
 						<FormRequiredText text='* - pola obowiązkowe' />
-						<Division>
+						<Container>
 							<FormButton buttonBody='Przelicz' type='submit' />
-						</Division>
-						<Division>
+						</Container>
+						<Container>
 							<FormScore result={result} amount={amount} currencyShort={currencyShort} />
-						</Division>
-						<Division>
+						</Container>
+						<Container>
 							<FormDataDownloadDate date={date} />
-						</Division>
-						<Division>
+						</Container>
+						<Container>
 							<FormButton buttonBody='Wyczyść kalkulator' type='reset' />
-						</Division>
+						</Container>
 					</>
 				)}
 				{rates.status === 'loading' && <FormLoading />}
