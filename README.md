@@ -6,8 +6,8 @@ Check out my 'to do app' made in React: https://miloszzaj.github.io/currency-con
 
 ## Description
 
-Currency Converter converts amounts from one currency to PLN. You can choose one of few currencies: EUR, USD, AED, AUD, HKD, CAD, CHF, GBP, JPY.
-Please, enter a value of one currency and course of this currency to be converted into PLN currency.
+Currency Converter converts amounts from any currency to PLN. You can choose one of any currencies available in European Central Bank
+Please, enter a value of currency you would like to be converted into PLN currency.
 
 ## Technologies
 
