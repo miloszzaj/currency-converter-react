@@ -12,6 +12,7 @@ export const useCurrentRates = () => {
 					const res = await axios.get('https://api.exchangerate.host/latest?base=PLN');
 					setRates({ ratio: res.data.rates, status: 'ok' });
 					setDate(res.data.date);
+					console.log(res.data.rates);
 				} catch {
 					setRates({ status: 'error' });
 				}

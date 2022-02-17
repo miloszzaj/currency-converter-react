@@ -24,7 +24,6 @@ const Form = () => {
 		const selectedIndex = e.target.options.selectedIndex;
 		setCurrencyShort(e.target.options[selectedIndex].getAttribute('short'));
 		setActualCourse(e.target.value);
-		calculate();
 	};
 
 	const calculate = () => {
