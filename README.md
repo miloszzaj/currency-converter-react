@@ -20,9 +20,10 @@ Please, enter a value of one currency and course of this currency to be converte
 - Custom hooks
 - Styled components
 - Local storage
+- The currency data comes from the European Central Bank and its provider is https://exchangerate.host
 
 ## Preview
-![preview](https://github.com/miloszzaj/currency-converter-react/blob/master/demo.gif)
+![preview](https://github.com/miloszzaj/currency-converter-react/blob/master/preview.gif)
 
 
 ## Available Scripts
