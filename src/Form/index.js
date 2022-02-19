@@ -40,6 +40,7 @@ const Form = () => {
 		setAmount();
 		setActualCourse(actualCourse);
 		setResult();
+		setCurrencyShort('EUR');
 	};
 
 	return (

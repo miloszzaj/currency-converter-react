@@ -6,19 +6,18 @@ export const useCurrentRates = () => {
 	const [date, setDate] = useState();
 
 	useEffect(() => {
-		const test = () => {
+		const FetchData = () => {
 			(async () => {
 				try {
 					const res = await axios.get('https://api.exchangerate.host/latest?base=PLN');
 					setRates({ ratio: res.data.rates, status: 'ok' });
 					setDate(res.data.date);
-					console.log(res.data.rates);
 				} catch {
 					setRates({ status: 'error' });
 				}
 			})();
 		};
-		setTimeout(test, 2000);
+		setTimeout(FetchData, 2000);
 	}, []);
 	return { rates, date };
 };

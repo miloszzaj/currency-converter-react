@@ -13,6 +13,6 @@ export const Button = styled.button`
 	&:hover {
 		cursor: pointer;
 		background-color: ${({ theme }) => theme.color.eucalyptus};
-		box-shadow: 0px 0px 30px 6px ${({ theme }) => theme.color.eucalyptus};
+		box-shadow: 0px 0px 5px 3px ${({ theme }) => theme.color.eucalyptus};
 	}
 `;
